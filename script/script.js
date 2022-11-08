@@ -5,21 +5,23 @@ const btnBlackDOM = document.querySelector("#btnBlack");
 const btnWhiteDOM = document.querySelector("#btnWhite");
 const btnRainbowDOM = document.querySelector("#btnRainbow");
 const btnClearDOM = document.querySelector("#btnClear");
-const btnShadowDOM = document.querySelector("#btnShadow")
-const RAINBOW = ['#9400D3', '#4B0082', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000'];
+const btnColorPickerDOM = document.querySelector("#btnColorPicker")
+const sliderDOM = document.querySelector("#slider");
+const sliderValueDOM = document.querySelector("#sliderValue");
+const RAINBOW = ['#9400D3', '#4B0082', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000', '#00ff80', '#00ffff', '#0080ff', '#8000ff', '#ff0080'];
 
 let isRainbow;
-let isShadow;
 let currentColor = 'black';
-let opacity = 0;
 let mouseDown = false
+let currentSize = 24;
 
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
+makeGrids(currentSize, currentSize);
 
 // the div creating part
-function makeRows(rows, cols) {
+function makeGrids(rows, cols) {
     
     contentDOM.style.setProperty('--grid-rows', rows);
     contentDOM.style.setProperty('--grid-cols', cols);
@@ -33,62 +35,80 @@ function makeRows(rows, cols) {
         cell.addEventListener("mouseover", changeColor);
 
         contentDOM.appendChild(cell).className = "square";
-
     };
 };
-  
-makeRows(16, 16);
 
 
 // changeColor function
-
 function changeColor(e) {
 
     if (e.type == "mouseover" && !mouseDown) 
         return
 
     else if (e.type == "mouseover" && mouseDown) {
+        
         // rainbow mode mouseover
-         if (isRainbow) {
+        if (isRainbow) {
 
             currentColor = RAINBOW[Math.floor(Math.random() * RAINBOW.length)];
             e.target.style.setProperty('background-color', currentColor);
         
         }
-    
         // default color mouseover
         else if (!isRainbow) {
         
             e.target.style.setProperty('background-color', currentColor);
         
         }
-    
     }
     
-    // clear button eventlistener
-    
+    // soft clear button (changing only background color to default, not deleting all innerHTML)
     btnClearDOM.addEventListener("click", () => {
-        
-        e.target.style.setProperty('background-color', '')
-        
+    e.target.style.setProperty('background-color', '')
     });
+}
 
+
+// changing size function which includes three other functions
+function changeSize(value) {
+
+    setCurrentSize (value)
+    updateSliderValue(value)
+    hardClear()
+         
+}
+
+// this function is changing the value of the slider dynamicly
+function updateSliderValue(value) {
+    
+    sliderValueDOM.textContent = `${value} x ${value}`
+
+}
+
+// hard clear function for after changing size with slider and refreshes the container
+function hardClear() {
+    containerClear()
+    makeGrids(currentSize, currentSize)
+}
+
+// for hardClear function
+function containerClear() {
+  contentDOM.innerHTML = ' '
+}
+
+// size tweak
+function setCurrentSize(num) {
+    currentSize = num
 }
 
 
 
 
-
-
-
-
-// buttons
-
+// button events
 btnBlackDOM.addEventListener("click", () => {
     
     currentColor = 'black';
     isRainbow = false;
-    isShadow = false;
 
 });
 
@@ -96,22 +116,22 @@ btnWhiteDOM.addEventListener("click", () => {
     
     currentColor = '';
     isRainbow = false;
-    isShadow = false;
 
 });
 
 btnRainbowDOM.addEventListener("click", () => {
     
     isRainbow = true;
-    isShadow = false;
 
 });
 
-btnShadowDOM.addEventListener("click", () => {
-    
-    isShadow = true;
-    currentColor ='black';
+btnColorPickerDOM.addEventListener("input", (e) => {
+
+    currentColor = e.target.value;
     isRainbow = false;
 
 });
 
+// slider events
+sliderDOM.onmousemove = (e) => updateSliderValue(e.target.value);
+sliderDOM.onchange = (e) => changeSize(e.target.value);
