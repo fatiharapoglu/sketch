@@ -1,6 +1,5 @@
 
 // constants and settings
-
 const contentDOM = document.querySelector("#content");
 const btnBlackDOM = document.querySelector("#btnBlack");
 const btnWhiteDOM = document.querySelector("#btnWhite");
@@ -13,10 +12,13 @@ let isRainbow;
 let isShadow;
 let currentColor = 'black';
 let opacity = 0;
+let mouseDown = false
+
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 
 // the div creating part
-
 function makeRows(rows, cols) {
     
     contentDOM.style.setProperty('--grid-rows', rows);
@@ -24,60 +26,60 @@ function makeRows(rows, cols) {
     
     for (i = 0; i < (rows * cols); i++) {
 
-        let cell = document.createElement("div");
-        contentDOM.appendChild(cell).className = "square";
+        const cell = document.createElement("div");
         
-        // mouseover event -> apparently it doesn't work if these are outside because of their dynamic structure. 
+        // mouse events -> apparently it doesn't work if these are outside of "for" because of their dynamic structure. 
+        cell.addEventListener("mousedown", changeColor);
+        cell.addEventListener("mouseover", changeColor);
 
-        cell.addEventListener("mouseenter", () => {
-    
-            // rainbow mode mouseover
-            
-            if (isRainbow) {
-
-                currentColor = RAINBOW[Math.floor(Math.random() * RAINBOW.length)];
-                cell.style.setProperty('background-color', currentColor);
-
-
-            }
-
-            // default color mouseover
-
-            else if (!isRainbow) {
-
-                cell.style.setProperty('background-color', currentColor);
-
-            }
-            
-
-            // shadow mode
-
-
-            if (isShadow) {
-
-                if (opacity < 1) {
-
-                    cell.setAttribute('style' , `background-color: black; opacity: ${opacity}`);
-                    opacity = opacity + 0.1
-                }
-
-            }
-            
-
-            // clear button eventlistener
-
-            btnClearDOM.addEventListener("click", () => {
-    
-                cell.style.setProperty('background-color', 'white')
-            
-            });
-          
-        });
+        contentDOM.appendChild(cell).className = "square";
 
     };
 };
   
 makeRows(16, 16);
+
+
+// changeColor function
+
+function changeColor(e) {
+
+    if (e.type == "mouseover" && !mouseDown) 
+        return
+
+    else if (e.type == "mouseover" && mouseDown) {
+        // rainbow mode mouseover
+         if (isRainbow) {
+
+            currentColor = RAINBOW[Math.floor(Math.random() * RAINBOW.length)];
+            e.target.style.setProperty('background-color', currentColor);
+        
+        }
+    
+        // default color mouseover
+        else if (!isRainbow) {
+        
+            e.target.style.setProperty('background-color', currentColor);
+        
+        }
+    
+    }
+    
+    // clear button eventlistener
+    
+    btnClearDOM.addEventListener("click", () => {
+        
+        e.target.style.setProperty('background-color', '')
+        
+    });
+
+}
+
+
+
+
+
+
 
 
 // buttons
@@ -92,7 +94,7 @@ btnBlackDOM.addEventListener("click", () => {
 
 btnWhiteDOM.addEventListener("click", () => {
     
-    currentColor = 'white';
+    currentColor = '';
     isRainbow = false;
     isShadow = false;
 
