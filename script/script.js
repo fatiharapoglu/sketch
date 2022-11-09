@@ -153,12 +153,12 @@ btnMuteDOM.addEventListener("click", () => {
     
     if (lofiDOM.muted == false) {
         lofiDOM.muted = true;
-        btnMuteDOM.setAttribute("src", "/assets/mute.png")
+        btnMuteDOM.setAttribute("src", "assets/mute.png")
     }
 
     else {
         lofiDOM.muted = false;
-        btnMuteDOM.setAttribute("src", "/assets/volume.png")
+        btnMuteDOM.setAttribute("src", "assets/volume.png")
     }
 });
 
