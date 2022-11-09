@@ -4,35 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sketching</title>
+    <title>Fettan | etch-a-sketch</title>
+    <link rel="shortcut icon" href="/assets/titleicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kristi&family=Stalemate&display=swap" rel="stylesheet">
     <script src="/script/script.js" defer></script>
 </head>
 <body>
     
     <header>
-        <h1 class="center test">Etch A Sketch</h1>
+        <h1 id="sketch" class="center"></h1>
     </header>
 
 
     <section>
-        <div class="container test" id="content">
+        <div class="container" id="content">
             <!-- content created by javascript goes here -->
         </div>
 
-        <div class="center test">
+        <div class="center">
             <div>                
-                <button id="btnBlack">Black</button>
-                <button id="btnRainbow">Rainbow</button>
-                <button id="btnWhite">Eraser</button>
-                <button id="btnClear">Clear</button>
+                <button class="btn" id="btnBlack">Black</button>
+                <button class="btn" id="btnRainbow">
+                    <span style="color: #9400D3;">R</span>
+                    <span style="color: #4B0082;">a</span>
+                    <span style="color: #0000FF;">i</span>
+                    <span style="color: #00FF00;">n</span>
+                    <span style="color: #FFFF00;">b</span>
+                    <span style="color: #FF7F00;">o</span>
+                    <span style="color: #FF0000;">w</span>
+                </button>
+                <button class="btn" id="btnWhite">Eraser</button>
+                <button class="btn" id="btnClear">Clear</button>
             </div>
             <div>
-                <input id="btnColorPicker" type="color" value="#333333">
+                <input id="slider" type="range" value="36" min="16" max="72">
+                <div id="sliderValue">36 x 36</div>
             </div>
             <div>
-                <input id="slider" type="range" value="24" min="16" max="64">
-                <div id="sliderValue">24 x 24</div>
+                <input id="btnColorPicker" type="color" value="#5b6979">
             </div>
         </div>
     </section>
@@ -41,5 +53,14 @@
     <footer>
 
     </footer>
+
+    <video autoplay muted loop id="video">
+        <source src="/assets/background.mp4" type="video/mp4">
+    </video>
+
+    <audio id="lofi" autoplay loop>
+        <source src="/assets/BirdBath.mp3" type="audio/mp3" />
+    </audio>
+    <img id="btnMute" src="/assets/volume.png" alt="mute-unmute">
 </body>
 </html>

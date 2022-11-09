@@ -13,7 +13,7 @@ const RAINBOW = ['#9400D3', '#4B0082', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00
 let isRainbow;
 let currentColor = 'black';
 let mouseDown = false
-let currentSize = 24;
+let currentSize = 36;
 
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
@@ -78,7 +78,7 @@ function changeSize(value) {
          
 }
 
-// this function is changing the value of the slider dynamicly
+// this function is changing the value of the slider dynamically
 function updateSliderValue(value) {
     
     sliderValueDOM.textContent = `${value} x ${value}`
@@ -135,3 +135,42 @@ btnColorPickerDOM.addEventListener("input", (e) => {
 // slider events
 sliderDOM.onmousemove = (e) => updateSliderValue(e.target.value);
 sliderDOM.onchange = (e) => changeSize(e.target.value);
+
+// mute button and background audio settings
+
+lofiDOM = document.querySelector("#lofi")
+btnMuteDOM = document.querySelector("#btnMute");
+
+lofiDOM.muted = false;
+lofiDOM.volume = 0.3;
+lofiDOM.autoplay = true;
+
+btnMuteDOM.addEventListener("click", () => {
+    
+    if (lofiDOM.muted == false) {
+        lofiDOM.muted = true;
+        btnMuteDOM.setAttribute("src", "/assets/mute.png")
+    }
+
+    else {
+        lofiDOM.muted = false;
+        btnMuteDOM.setAttribute("src", "/assets/volume.png")
+    }
+});
+
+
+// typing effect
+
+let letter = 0;
+let animationText = 'etch-a-sketch'; /* The text */
+let speed = 100; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+    if (letter < animationText.length) {
+        document.getElementById("sketch").innerHTML += animationText.charAt(letter);
+        letter++;
+    setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
