@@ -8,6 +8,8 @@ const btnClearDOM = document.querySelector("#btnClear");
 const btnColorPickerDOM = document.querySelector("#btnColorPicker")
 const sliderDOM = document.querySelector("#slider");
 const sliderValueDOM = document.querySelector("#sliderValue");
+const lofiDOM = document.querySelector("#lofi");
+const btnMuteDOM = document.querySelector("#btnMute");
 const RAINBOW = ['#9400D3', '#4B0082', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000', '#00ff80', '#00ffff', '#0080ff', '#8000ff', '#ff0080'];
 
 let isRainbow;
@@ -138,12 +140,14 @@ sliderDOM.onchange = (e) => changeSize(e.target.value);
 
 // mute button and background audio settings
 
-lofiDOM = document.querySelector("#lofi")
-btnMuteDOM = document.querySelector("#btnMute");
+
+
+contentDOM.addEventListener("click", () => {
+    lofiDOM.play()
+});
 
 lofiDOM.muted = false;
-lofiDOM.volume = 0.3;
-lofiDOM.autoplay = true;
+lofiDOM.volume = 0.4;
 
 btnMuteDOM.addEventListener("click", () => {
     

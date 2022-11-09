@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kristi&family=Stalemate&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
     <script src="/script/script.js" defer></script>
 </head>
 <body>
@@ -17,7 +18,6 @@
     <header>
         <h1 id="sketch" class="center"></h1>
     </header>
-
 
     <section>
         <div class="container" id="content">
@@ -28,13 +28,13 @@
             <div>                
                 <button class="btn" id="btnBlack">Black</button>
                 <button class="btn" id="btnRainbow">
-                    <span style="color: #9400D3;">R</span>
-                    <span style="color: #4B0082;">a</span>
-                    <span style="color: #0000FF;">i</span>
+                    <span style="color: #FF0000;">R</span>
+                    <span style="color: #FF7F00;">a</span>
+                    <span style="color: #FFFF00;">i</span>
                     <span style="color: #00FF00;">n</span>
-                    <span style="color: #FFFF00;">b</span>
-                    <span style="color: #FF7F00;">o</span>
-                    <span style="color: #FF0000;">w</span>
+                    <span style="color: #0000FF;">b</span>
+                    <span style="color: #691ca0;">o</span>
+                    <span style="color: #4c0d69;">w</span>
                 </button>
                 <button class="btn" id="btnWhite">Eraser</button>
                 <button class="btn" id="btnClear">Clear</button>
@@ -51,14 +51,26 @@
     
     
     <footer>
-
+        <div class="about">
+            <span> <a href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch" id="odin">The Odin Project</a> | fatiharapoglu</span>
+            <a href="https://github.com/fatiharapoglu"><img class="githubIcon" src="assets/GitHub-Mark-120px-plus.png" alt="github logo"></a>
+        </div>
+        <div class="rightside">
+            <div class="dropdown">
+                <span>Background</span>
+                <div class="disclaimer">
+                    <p><b>Background video: </b> <a href="https://www.pexels.com/@kristopherk-88391/">@kristopherk</a> from pexels</p>
+                    <p><b>Background music: </b> <a href="https://purrplecat.com">Purrple Cat</a> - Bird Bath</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <video autoplay muted loop id="video">
         <source src="/assets/background.mp4" type="video/mp4">
     </video>
 
-    <audio id="lofi" autoplay loop>
+    <audio id="lofi" loop>
         <source src="/assets/BirdBath.mp3" type="audio/mp3" />
     </audio>
     <img id="btnMute" src="/assets/volume.png" alt="mute-unmute">
