@@ -14,11 +14,11 @@ const RAINBOW = ['#9400D3', '#4B0082', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00
 
 let isRainbow;
 let currentColor = 'black';
-let mouseDown = false
+let mouseDown = false;
 let currentSize = 36;
 
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 makeGrids(currentSize, currentSize);
 
@@ -45,7 +45,7 @@ function makeGrids(rows, cols) {
 function changeColor(e) {
 
     if (e.type == "mouseover" && !mouseDown) 
-        return
+        return;
 
     else if (e.type == "mouseover" && mouseDown) {
         
@@ -67,16 +67,16 @@ function changeColor(e) {
     // soft clear button (changing only background color to default, not deleting all innerHTML)
     btnClearDOM.addEventListener("click", () => {
     e.target.style.setProperty('background-color', '')
-    });
-}
+    })
+};
 
 
 // changing size function which includes three other functions
 function changeSize(value) {
 
-    setCurrentSize (value)
-    updateSliderValue(value)
-    hardClear()
+    setCurrentSize (value);
+    updateSliderValue(value);
+    hardClear();
          
 }
 
@@ -84,26 +84,23 @@ function changeSize(value) {
 function updateSliderValue(value) {
     
     sliderValueDOM.textContent = `${value} x ${value}`
-
-}
+};
 
 // hard clear function for after changing size with slider and refreshes the container
 function hardClear() {
     containerClear()
     makeGrids(currentSize, currentSize)
-}
+};
 
 // for hardClear function
 function containerClear() {
   contentDOM.innerHTML = ' '
-}
+};
 
 // size tweak
 function setCurrentSize(num) {
-    currentSize = num
-}
-
-
+    currentSize = num;
+};
 
 
 // button events
@@ -138,10 +135,8 @@ btnColorPickerDOM.addEventListener("input", (e) => {
 sliderDOM.onmousemove = (e) => updateSliderValue(e.target.value);
 sliderDOM.onchange = (e) => changeSize(e.target.value);
 
+
 // mute button and background audio settings
-
-
-
 contentDOM.addEventListener("click", () => {
     lofiDOM.play()
 });
@@ -164,7 +159,6 @@ btnMuteDOM.addEventListener("click", () => {
 
 
 // typing effect
-
 let letter = 0;
 let animationText = 'etch-a-sketch'; /* The text */
 let speed = 100; /* The speed/duration of the effect in milliseconds */
@@ -175,6 +169,6 @@ function typeWriter() {
         letter++;
     setTimeout(typeWriter, speed);
     }
-}
+};
 
 typeWriter();
