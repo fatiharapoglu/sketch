@@ -1,4 +1,3 @@
-
 // constants and settings
 const contentDOM = document.querySelector("#content");
 const btnBlackDOM = document.querySelector("#btnBlack");
@@ -73,11 +72,9 @@ function changeColor(e) {
 
 // changing size function which includes three other functions
 function changeSize(value) {
-
     setCurrentSize (value);
     updateSliderValue(value);
     hardClear();
-         
 }
 
 // this function is changing the value of the slider dynamically
@@ -105,30 +102,22 @@ function setCurrentSize(num) {
 
 // button events
 btnBlackDOM.addEventListener("click", () => {
-    
     currentColor = 'black';
     isRainbow = false;
-
 });
 
 btnWhiteDOM.addEventListener("click", () => {
-    
     currentColor = '';
     isRainbow = false;
-
 });
 
 btnRainbowDOM.addEventListener("click", () => {
-    
     isRainbow = true;
-
 });
 
 btnColorPickerDOM.addEventListener("input", (e) => {
-
     currentColor = e.target.value;
     isRainbow = false;
-
 });
 
 // slider events
