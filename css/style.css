@@ -1,4 +1,5 @@
-:root { /* root -> css variables */
+:root {
+    /* root -> css variables */
     --grid-cols: 1;
     --grid-rows: 1;
 }
@@ -6,6 +7,7 @@
 body {
     background-color: #d0d1ce;
     user-select: none;
+    min-width: 650px;
 }
 
 .center {
@@ -21,12 +23,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 1fr); /* this part is tricky, fr-> flex fraction, fr value of 1 for 100% of the available space */
-    grid-template-columns: repeat(var(--grid-cols), 1fr); /* and repeat() is a CSS function represents a repeated fragment of the grids */
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    /* this part is tricky, fr-> flex fraction, fr value of 1 for 100% of the available space */
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    /* and repeat() is a CSS function represents a repeated fragment of the grids */
     background-color: #c2cadc;
     border: 13px solid #292831;
     border-radius: 3%;
-    }
+}
 
 h1.center {
     max-width: 600px;
@@ -35,7 +39,7 @@ h1.center {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 0;
-    font-family: 'Stalemate', cursive;
+    font-family: "Stalemate", cursive;
     font-size: 50px;
     font-weight: 500;
     color: white;
@@ -45,12 +49,12 @@ h1.center {
 
 .square {
     border: 1px solid rgba(0, 0, 0, 0.05);
-    text-align: center;  
-    
+    text-align: center;
+
 }
 
 /* color picker settings start */
-#btnColorPicker {
+#btn-color-picker {
     border-radius: 50px;
     width: 30px;
     height: 30px;
@@ -59,11 +63,11 @@ h1.center {
     margin: 10px;
 }
 
-#btnColorPicker::-webkit-color-swatch-wrapper { 
+#btn-color-picker::-webkit-color-swatch-wrapper {
     padding: 0;
 }
 
-#btnColorPicker::-webkit-color-swatch {
+#btn-color-picker::-webkit-color-swatch {
     border: 1px solid black;
     border-radius: 50px;
 }
@@ -76,22 +80,20 @@ h1.center {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -1;
-
 }
 
-#btnMute {
+#btn-mute {
     position: fixed;
     right: 5px;
     top: 5px;
     -webkit-filter: blur(1.5px);
     filter: blur(1.5px);
-    
 }
 
-#btnMute:hover {
+#btn-mute:hover {
     scale: 1.2;
     -webkit-filter: blur(0px);
     filter: blur(0px);
@@ -100,7 +102,7 @@ h1.center {
 .btn {
     background-color: rgba(121, 140, 161, 0.55);
     color: #262730;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border: 1px solid #374052;
     padding: 8px 22px;
     text-align: center;
@@ -126,11 +128,11 @@ h1.center {
     color: white;
 }
 
-.btn#btnRainbow {
+.btn#btn-rainbow {
     letter-spacing: -2px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-weight: bold;
-    font-family: 'Ms Madi', cursive;
+    font-family: "Ms Madi", cursive;
     padding-bottom: 5px;
 }
 
@@ -156,8 +158,8 @@ h1.center {
     cursor: pointer;
 }
 
-#sliderValue {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#slider-value {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #d0d1ce;
     text-shadow: 2px 2px 4px #000000;
     padding-top: 8px;
@@ -182,15 +184,15 @@ footer .about {
     align-items: center;
 }
 
-.githubIcon {
-    width: 30px; 
-    height: 30px; 
-    padding-left: 10px; 
+.github-icon {
+    width: 30px;
+    height: 30px;
+    padding-left: 10px;
     padding-right: 10px;
     transition: transform 1s ease-in-out;
 }
 
-.githubIcon:hover {
+.github-icon:hover {
     transform: rotate(360deg);
 }
 
@@ -199,7 +201,6 @@ footer .about {
     text-decoration: none;
     text-shadow: 2px 2px 4px #000000;
     letter-spacing: 1px;
-    
 }
 
 .about a:hover {
@@ -209,10 +210,9 @@ footer .about {
 .dropdown {
     position: relative;
     display: inline-block;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 12px;
     text-shadow: none;
-
 }
 
 .rightside {
@@ -226,13 +226,13 @@ footer .about {
     position: absolute;
     background-color: #c2cadc8f;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
     z-index: 1;
     color: #000000;
     letter-spacing: 0;
 }
-  
+
 .dropdown:hover .disclaimer {
     display: block;
     bottom: 100%;
