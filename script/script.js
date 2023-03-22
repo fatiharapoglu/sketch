@@ -9,7 +9,20 @@ const sliderDOM = document.querySelector("#slider");
 const sliderValueDOM = document.querySelector("#slider-value");
 const lofiDOM = document.querySelector("#lofi");
 const btnMuteDOM = document.querySelector("#btn-mute");
-const RAINBOW = ["#9400D3", "#4B0082", "#0000FF", "#00FF00", "#FFFF00", "#FF7F00", "#FF0000", "#00ff80", "#00ffff", "#0080ff", "#8000ff", "#ff0080"];
+const RAINBOW = [
+    "#9400D3",
+    "#4B0082",
+    "#0000FF",
+    "#00FF00",
+    "#FFFF00",
+    "#FF7F00",
+    "#FF0000",
+    "#00ff80",
+    "#00ffff",
+    "#0080ff",
+    "#8000ff",
+    "#ff0080",
+];
 
 let isRainbow;
 let currentColor = "black";
@@ -88,16 +101,13 @@ btnBlackDOM.addEventListener("click", () => {
     currentColor = "black";
     isRainbow = false;
 });
-
 btnWhiteDOM.addEventListener("click", () => {
     currentColor = "";
     isRainbow = false;
 });
-
 btnRainbowDOM.addEventListener("click", () => {
     isRainbow = true;
 });
-
 btnColorPickerDOM.addEventListener("input", (e) => {
     currentColor = e.target.value;
     isRainbow = false;
@@ -136,6 +146,6 @@ function typeWriter() {
         letter++;
         setTimeout(typeWriter, speed);
     }
-};
+}
 
 typeWriter();

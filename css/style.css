@@ -5,6 +5,9 @@
 }
 
 body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     background-color: #d0d1ce;
     user-select: none;
     min-width: 650px;
@@ -44,13 +47,11 @@ h1.center {
     font-weight: 500;
     color: white;
     padding-right: 22px;
-
 }
 
 .square {
     border: 1px solid rgba(0, 0, 0, 0.05);
     text-align: center;
-
 }
 
 /* color picker settings start */
@@ -189,7 +190,7 @@ footer .about {
     height: 30px;
     padding-left: 10px;
     padding-right: 10px;
-    transition: transform 1s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 .github-icon:hover {

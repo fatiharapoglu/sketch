@@ -1,73 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fettan | etch-a-sketch</title>
-    <link rel="shortcut icon" href="assets/titleicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kristi&family=Stalemate&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
-    <script src="script/script.js" defer></script>
-</head>
-<body>
-    <header><h1 id="sketch" class="center"></h1></header>
-    <section>
-        <div class="container" id="content">
-            <!-- content created by javascript goes here -->
-        </div>
-        <div class="center">
-            <div>
-                <button class="btn" id="btn-black">Black</button>
-                <button class="btn" id="btn-rainbow">
-                    <span style="color: #FF0000;">R</span>
-                    <span style="color: #FF7F00;">a</span>
-                    <span style="color: #FFFF00;">i</span>
-                    <span style="color: #00FF00;">n</span>
-                    <span style="color: #0000FF;">b</span>
-                    <span style="color: #691ca0;">o</span>
-                    <span style="color: #4c0d69;">w</span>
-                </button>
-                <button class="btn" id="btn-white">Eraser</button>
-                <button class="btn" id="btn-clear">Clear</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fettan | etch-a-sketch</title>
+        <link rel="shortcut icon" href="assets/titleicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kristi&family=Stalemate&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap"
+            rel="stylesheet"
+        />
+        <script src="script/script.js" defer></script>
+    </head>
+    <body>
+        <header><h1 id="sketch" class="center"></h1></header>
+        <section>
+            <div class="container" id="content">
+                <!-- content created by javascript goes here -->
             </div>
-            <div>
-                <input id="slider" type="range" value="36" min="16" max="72">
-                <div id="slider-value">36 x 36</div>
-            </div>
-            <div>
-                <input id="btn-color-picker" type="color" value="#5b6979">
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="about">
-            <span> <a href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch" id="odin">The Odin
-                    Project</a> | fatiharapoglu</span>
-            <a href="https://github.com/fatiharapoglu"><img class="github-icon" src="assets/GitHub-Mark-120px-plus.png"
-                    alt="github-logo"></a>
-        </div>
-        <div class="rightside">
-            <div class="dropdown">
-                <span>Background</span>
-                <div class="disclaimer">
-                    <p><b>Background video: </b> <a href="https://www.pexels.com/@kristopherk-88391/">@kristopherk</a>
-                        from pexels</p>
-                    <p><b>Background music: </b> <a href="https://purrplecat.com">Purrple Cat</a> - Bird Bath</p>
+            <div class="center">
+                <div>
+                    <button class="btn" id="btn-black">Black</button>
+                    <button class="btn" id="btn-rainbow">
+                        <span style="color: #ff0000">R</span>
+                        <span style="color: #ff7f00">a</span>
+                        <span style="color: #ffff00">i</span>
+                        <span style="color: #00ff00">n</span>
+                        <span style="color: #0000ff">b</span>
+                        <span style="color: #691ca0">o</span>
+                        <span style="color: #4c0d69">w</span>
+                    </button>
+                    <button class="btn" id="btn-white">Eraser</button>
+                    <button class="btn" id="btn-clear">Clear</button>
+                </div>
+                <div>
+                    <input id="slider" type="range" value="36" min="16" max="72" />
+                    <div id="slider-value">36 x 36</div>
+                </div>
+                <div>
+                    <input id="btn-color-picker" type="color" value="#5b6979" />
                 </div>
             </div>
-        </div>
-    </footer>
-    <video autoplay muted loop id="video">
-        <source src="assets/background.mp4" type="video/mp4">
-    </video>
-    <audio id="lofi" loop>
-        <source src="assets/BirdBath.mp3" type="audio/mp3" />
-    </audio>
-    <img id="btn-mute" src="assets/volume.png" alt="mute-unmute">
-</body>
-
+        </section>
+        <footer>
+            <div class="about">
+                <span>
+                    <a
+                        href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch"
+                        id="odin"
+                        >The Odin Project</a
+                    >
+                    | fatiharapoglu</span
+                >
+                <a href="https://github.com/fatiharapoglu"
+                    ><img
+                        class="github-icon"
+                        src="assets/GitHub-Mark-120px-plus.png"
+                        alt="github-logo"
+                /></a>
+            </div>
+            <div class="rightside">
+                <div class="dropdown">
+                    <span>Background</span>
+                    <div class="disclaimer">
+                        <p>
+                            <b>Background video: </b>
+                            <a href="https://www.pexels.com/@kristopherk-88391/">@kristopherk</a>
+                            from pexels
+                        </p>
+                        <p>
+                            <b>Background music: </b>
+                            <a href="https://purrplecat.com">Purrple Cat</a> - Bird Bath
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <video autoplay muted loop id="video">
+            <source src="assets/background.mp4" type="video/mp4" />
+        </video>
+        <audio id="lofi" loop>
+            <source src="assets/BirdBath.mp3" type="audio/mp3" />
+        </audio>
+        <img id="btn-mute" src="assets/volume.png" alt="mute-unmute" />
+    </body>
 </html>
