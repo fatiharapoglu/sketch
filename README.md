@@ -21,7 +21,7 @@ Created with **HTML**, **CSS** and **JavaScript**.
 ## Acknowledgements
 
 -   [@kristopherk](https://www.pexels.com/@kristopherk-88391/) (background video)
--   [@Purple Cat](https://purrplecat.com) (background music)
+-   [Purple Cat](https://purrplecat.com) (background music)
 
 ## How It Looks
 
